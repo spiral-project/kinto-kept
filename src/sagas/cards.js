@@ -1,34 +1,41 @@
 import { push as updatePath } from "react-router-redux";
 import { put } from "redux-saga/effects";
+import Kinto from "kinto";
 
 import { cardsLoaded, cardLoaded, cardCreated, cardEdited, cardDeleted } from "../actions/cards";
 
 
+let client;
+
+function getClient() {
+  if (!client) {
+    const kinto = new Kinto();
+    client = kinto.collection("cards");
+  }
+  return client;
+}
+
 
 export function* loadCards(action) {
-  // const {data} = yield kinto.list();
-  const cards = [
-    {"id": "1", "type": "text", "title": "This is a Text entry", "text": "Hello World."},
-    {"id": "2", "type": "text", "title": "Lorem ipsum dolor sit amet",
-     "text": "**Consectetur adipisicing elit**, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
-    {"id": "3", "type": "text", "title": "Ut enim ad minim veniam",
-     "text": "Quis nostrud *exercitation ullamco* laboris nisi ut aliquip ex ea commodo consequat."}
-  ];
+  const client = getClient();
+  const {data:cards} = yield client.list();
   yield put(cardsLoaded(cards));
 }
 
 
 export function* loadCard(action) {
   const {id} = action;
-  // const {data} = yield kinto.get(id));
-  const card = {id, title: "foo", text: "bar"};
+  const client = getClient();
+  const {data:card} = yield client.get(id);
+  // try/catch: 404
   yield put(cardLoaded(card));
 }
 
 
 export function* createCard(action) {
   const {title, text} = action;
-  const card = {id: "1234", title, text};
+  const client = getClient();
+  const {data:card} = yield client.create({title, text});
   yield put(cardCreated(card));
   yield put(updatePath("/"));
 }
@@ -36,7 +43,8 @@ export function* createCard(action) {
 
 export function* editCard(action) {
   const {id, title, text} = action;
-  const card = {id, title: title + "+", text: text + "+"};
+  const client = getClient();
+  const {data:card} = yield client.update({id, title, text});
   yield put(cardEdited(card));
   yield put(updatePath("/"));
 }
@@ -44,7 +52,7 @@ export function* editCard(action) {
 
 export function* deleteCard(action) {
   const {id} = action;
-  // const card = kinto.delete(id).data;
-  const card = {id};
+  const client = getClient();
+  const {data:card} = yield client.delete(id);
   yield put(cardDeleted(card));
 }
