@@ -59968,7 +59968,7 @@
 	          var card = action.card;
 
 	          return {
-	            v: (0, _extends3.default)({}, state, { items: state.items.map(function (item) {
+	            v: (0, _extends3.default)({}, state, { edited: null, items: state.items.map(function (item) {
 	                return item.id === card.id ? card : item;
 	              }) })
 	          };
