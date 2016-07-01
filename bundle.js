@@ -66,10 +66,6 @@
 
 	var _store2 = _interopRequireDefault(_store);
 
-	__webpack_require__(648);
-
-	__webpack_require__(649);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var store = (0, _store2.default)({
@@ -51787,18 +51783,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(622)
-
-/***/ },
-/* 648 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 649 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);
