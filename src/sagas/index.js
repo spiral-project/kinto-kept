@@ -7,5 +7,7 @@ import * as cardsSagas from "./cards";
 export default function* rootSaga() {
   yield [
     takeEvery(c.CARD_CREATE, cardsSagas.createCard),
+    takeEvery(c.CARD_EDIT, cardsSagas.editCard),
+    takeEvery(c.CARD_DELETE, cardsSagas.deleteCard),
   ];
 }

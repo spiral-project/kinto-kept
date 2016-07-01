@@ -39,9 +39,8 @@ body {
 }
 
 .kept-panel {
-  /* FF hack to emulate "break-inside: avoid;" behavior */
-  display: table;
   width: 100%;
+  margin-right: 15px;
   /* Webkit "break-inside: avoid;" hack */
   -webkit-column-break-after: avoid;
   -webkit-column-break-before: avoid;
