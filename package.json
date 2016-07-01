@@ -5,7 +5,7 @@
   "scripts": {
     "dist": "NODE_ENV=production node_modules/.bin/webpack --progress --config webpack.prod.js && cp index.html css/* dist/",
     "lint": "node_modules/.bin/eslint scripts",
-    "publish-to-gh-pages": "rm -rf build && KINTO-KEPT_PUBLIC_PATH='/kinto-kept/' npm run dist && cp -R dist build && gh-pages --add --dist build/",
+    "publish-to-gh-pages": "rm -rf build && PUBLIC_PATH='/kinto-kept/' npm run dist && cp -R dist build && gh-pages --add --dist build/",
     "start": "node_modules/.bin/webpack-dev-server --config webpack.dev.js --port=3000 --hot"
   },
   "files": [
