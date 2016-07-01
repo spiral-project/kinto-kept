@@ -19,7 +19,6 @@
   "dependencies": {
     "atob": "^2.0.3",
     "btoa": "^1.1.2",
-    "kinto-http": "^1.0.0",
     "react": "^15.0.1",
     "react-bootstrap": "^0.29.5",
     "react-chartist": "^0.10.2",

@@ -6,6 +6,7 @@ import HomePage from "../components/HomePage";
 
 function mapStateToProps(state) {
   return {
+    items: state.cards.items,
   };
 }
 

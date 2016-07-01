@@ -11,7 +11,7 @@ export default function cards(state = INITIAL_STATE, action) {
     case CARD_CREATED: {
       const { card } = action;
       console.log("CARD_CREATED", card);
-      return {...state, cards: [...state.items, card]};
+      return {...state, items: [...state.items, card]};
     }
     default: {
       return state;
