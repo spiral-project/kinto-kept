@@ -4,8 +4,8 @@ import * as cardsSagas from "./cards";
 // import { fork } from "redux-saga/effects";
 
 
-export default function* rootSaga(getState) {
+export default function* rootSaga() {
   yield [
-    takeEvery(c.CARD_CREATE, cardsSagas.createCard, getState),
+    takeEvery(c.CARD_CREATE, cardsSagas.createCard),
   ];
 }
