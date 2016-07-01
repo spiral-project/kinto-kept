@@ -1,16 +1,23 @@
 import React from "react";
-import { Provider } from "react-redux";
 import { render } from "react-dom";
-import configureStore from "./store/configureStore";
-import HomePage from "./containers/HomePage";
+import { Provider } from "react-redux";
+import { Router, hashHistory } from "react-router";
+import { syncHistoryWithStore } from "react-router-redux";
+import getRoutes from "./routes";
+import configureStore from "./store";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "../css/styles.css";
 
+
 const store = configureStore();
+
+syncHistoryWithStore(hashHistory, store);
 
 render((
   <Provider store={store}>
-    <HomePage />
+    <Router history={hashHistory}>
+      {getRoutes(store)}
+    </Router>
   </Provider>
 ), document.getElementById("app"));
