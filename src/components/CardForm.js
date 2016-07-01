@@ -3,10 +3,14 @@ import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 
 export default class CardForm extends Component {
+  saveCard() {
+    return () => {
+      this.props.cardCreate("Lorem", "Ipsum");
+    };
+  }
   render() {
-    // const {} = this.props;
     return (
-      <Button>Save</Button>
+      <Button onClick={this.saveCard()}>Save</Button>
     );
   }
 }

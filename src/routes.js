@@ -2,7 +2,7 @@ import React from "react";
 import { Route, IndexRoute } from "react-router";
 import App from "./components/App";
 import HomePage from "./containers/HomePage";
-import CardForm from "./components/CardForm";
+import CardForm from "./containers/CardForm";
 
 
 export default function getRoutes(store) {

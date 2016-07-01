@@ -3,8 +3,9 @@ import {
   CARD_CREATED,
 } from "../constants";
 
-export function cardCreate(card) {
-  return {type: CARD_CREATE, card};
+
+export function cardCreate(title, text) {
+  return {type: CARD_CREATE, title, text};
 }
 
 export function cardCreated(card) {
