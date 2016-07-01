@@ -4,7 +4,7 @@ import cards from "./cards";
 
 
 const rootReducer = combineReducers({
-  cards: cards,
+  cards,
   routing: routerReducer,
 });
 

@@ -6,7 +6,7 @@ export default class GlyphiconLink extends Component {
   render() {
     const { glyph } = this.props;
     return (
-        <a  {...this.props}><Glyphicon glyph={glyph} /></a>
+        <a {...this.props}><Glyphicon glyph={glyph} /></a>
     );
   }
 }
