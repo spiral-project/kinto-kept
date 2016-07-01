@@ -1,3 +1,7 @@
+export const CARDS_LOAD = "CARDS_LOAD";
+export const CARDS_LOADED = "CARDS_LOADED";
+export const CARD_LOAD = "CARD_LOAD";
+export const CARD_LOADED = "CARD_LOADED";
 export const CARD_CREATE = "CARD_CREATE";
 export const CARD_CREATED = "CARD_CREATED";
 export const CARD_EDIT = "CARD_EDIT";

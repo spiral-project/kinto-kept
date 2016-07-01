@@ -1,6 +1,28 @@
 import { put } from "redux-saga/effects";
 
-import { cardCreated, cardEdited, cardDeleted } from "../actions/cards";
+import { cardsLoaded, cardLoaded, cardCreated, cardEdited, cardDeleted } from "../actions/cards";
+
+
+
+export function* loadCards(action) {
+  // const {data} = yield kinto.list();
+  const cards = [
+    {"id": 1, "type": "text", "title": "This is a Text entry", "text": "Hello World."},
+    {"id": 2, "type": "text", "title": "Lorem ipsum dolor sit amet",
+     "text": "**Consectetur adipisicing elit**, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
+    {"id": 3, "type": "text", "title": "Ut enim ad minim veniam",
+     "text": "Quis nostrud *exercitation ullamco* laboris nisi ut aliquip ex ea commodo consequat."}
+  ];
+  yield put(cardsLoaded(cards));
+}
+
+
+export function* loadCard(action) {
+  const {id} = action;
+  // const {data} = yield kinto.get(id));
+  const card = {id, title: "foo", text: "bar"};
+  yield put(cardLoaded(card));
+}
 
 
 export function* createCard(action) {

@@ -1,4 +1,6 @@
 import {
+  CARDS_LOADED,
+  CARD_LOADED,
   CARD_CREATED,
   CARD_DELETED,
 } from "../constants";
@@ -8,15 +10,22 @@ const INITIAL_STATE = {
 };
 
 export default function cards(state = INITIAL_STATE, action) {
+  console.log(action.type, action);
   switch (action.type) {
+    case CARD_LOADED: {
+      const { card } = action;
+      return {...state, edited: card};
+    }
+    case CARDS_LOADED: {
+      const { cards } = action;
+      return {...state, items: cards};
+    }
     case CARD_CREATED: {
       const { card } = action;
-      console.log("CARD_CREATED", card);
       return {...state, items: [...state.items, card]};
     }
     case CARD_DELETED: {
       const { card } = action;
-      console.log("CARD_DELETED", card);
       return {...state, items: state.items.filter((r) => r.id !== card.id)};
     }
     default: {

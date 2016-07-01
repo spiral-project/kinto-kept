@@ -6,7 +6,9 @@ import { cardCreate } from "../actions/cards";
 
 
 function mapStateToProps(state) {
+  const { edited } = state.cards;
   return {
+    edited
   };
 }
 

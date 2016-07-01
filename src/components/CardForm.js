@@ -9,8 +9,13 @@ export default class CardForm extends Component {
     };
   }
   render() {
+    const { edited } = this.props;
     return (
-      <Button onClick={this.saveCard()}>Save</Button>
+      <div>
+        <input type="text" value={edited.title}/>
+        <input type="text" value={edited.text}/>
+        <Button onClick={this.saveCard()}>Save</Button>
+      </div>
     );
   }
 }
