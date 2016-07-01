@@ -6,10 +6,6 @@ import { syncHistoryWithStore } from "react-router-redux";
 import getRoutes from "./routes";
 import configureStore from "./store";
 
-import "bootstrap/dist/css/bootstrap.css";
-import "../css/styles.css";
-
-
 const store = configureStore({
   cards: {
     items: [
