@@ -10,7 +10,11 @@ import { cardsLoad, cardLoad } from "./actions/cards";
 function onEnterHomePage(store) {
   return ({params}) => {
     const {id} = params;
-    store.dispatch(cardsLoad());
+    const state = store.getState();
+    // XXX: Find a better way to load only the first time.
+    if (state.cards.items.length === 0) {
+      store.dispatch(cardsLoad());
+    }
   };
 }
 

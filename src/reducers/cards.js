@@ -2,6 +2,7 @@ import {
   CARDS_LOADED,
   CARD_LOADED,
   CARD_CREATED,
+  CARD_EDITED,
   CARD_DELETED,
 } from "../constants";
 
@@ -23,6 +24,12 @@ export default function cards(state = INITIAL_STATE, action) {
     case CARD_CREATED: {
       const { card } = action;
       return {...state, items: [...state.items, card]};
+    }
+    case CARD_EDITED: {
+      const { card } = action;
+      return {...state, items: state.items.map((item) => {
+        return item.id === card.id ? card : item;
+      })};
     }
     case CARD_DELETED: {
       const { card } = action;

@@ -23,6 +23,7 @@
     "react-bootstrap": "^0.29.5",
     "react-chartist": "^0.10.2",
     "react-dom": "^15.0.1",
+    "react-jsonschema-form": "^0.35.0",
     "react-redux": "^4.0.0",
     "react-router": "^2.4.1",
     "react-router-redux": "4.0.5",

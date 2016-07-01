@@ -28,6 +28,16 @@ export function cardLoaded(card) {
   return {type: CARD_LOADED, card};
 }
 
+export function cardSave(formData) {
+  if (formData.hasOwnProperty("id")) {
+    const {id, title, text} = formData;
+    return cardEdit(id, title, text);
+  } else {
+    const {title, text} = formData;
+    return cardCreate(title, text);
+  }
+}
+
 export function cardCreate(title, text) {
   return {type: CARD_CREATE, title, text};
 }
