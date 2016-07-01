@@ -4,6 +4,7 @@ import { render } from "react-dom";
 import configureStore from "./store/configureStore";
 import HomePage from "./containers/HomePage";
 
+import "bootstrap/dist/css/bootstrap.css";
 import "../css/styles.css";
 
 const store = configureStore();
