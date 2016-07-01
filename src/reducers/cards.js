@@ -27,7 +27,7 @@ export default function cards(state = INITIAL_STATE, action) {
     }
     case CARD_EDITED: {
       const { card } = action;
-      return {...state, items: state.items.map((item) => {
+      return {...state, edited: null, items: state.items.map((item) => {
         return item.id === card.id ? card : item;
       })};
     }
